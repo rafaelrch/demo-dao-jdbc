@@ -40,6 +40,12 @@ public class Main2 {
         departmentdao.deleteById(sc.nextInt());
         System.out.println("Delete completed");
 
+        System.out.println("=== TEST 5 department update ===");
+        dep = departmentdao.findById(1);
+        dep.setName("Macbook");
+        departmentdao.update(dep);
+        System.out.println("Update completed");
+
         sc.close();
     }
 }
