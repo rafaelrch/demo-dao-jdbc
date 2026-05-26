@@ -13,6 +13,7 @@ public class Main2 {
     public static void main(String[] args) {
         Scanner sc =new Scanner(System.in);
         DepartmentDAO departmentdao = DaoFactory.createDepartmentDao();
+        SellerDAO sellerdao = DaoFactory.createSellerDao();
 
         List<Department> list = new ArrayList<>();
 
@@ -45,6 +46,17 @@ public class Main2 {
         dep.setName("Macbook");
         departmentdao.update(dep);
         System.out.println("Update completed");
+
+        System.out.println("=== TEST 6 findByDepartment ===");
+        System.out.println("Enter id department for filter sellers");
+        int id = sc.nextInt();
+        Department depFilter = new Department(id, null);
+        List<Seller> list2 = sellerdao.findByDepartment(depFilter);
+
+        for (Seller obj : list2){
+            System.out.println(obj);
+        }
+
 
         sc.close();
     }

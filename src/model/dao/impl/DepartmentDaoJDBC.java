@@ -4,11 +4,8 @@ import db.DB;
 import db.DbException;
 import model.dao.DepartmentDAO;
 import model.entites.Department;
-import model.entites.Seller;
-
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class DepartmentDaoJDBC implements DepartmentDAO {
@@ -137,7 +134,7 @@ public class DepartmentDaoJDBC implements DepartmentDAO {
 
         try{
             st = conn.prepareStatement(
-                    "SELECT * FROM department;"
+                    "SELECT * FROM department"
             );
 
             rs = st.executeQuery();
@@ -158,4 +155,5 @@ public class DepartmentDaoJDBC implements DepartmentDAO {
             DB.closeResultSet(rs);
         }
     }
+
 }
